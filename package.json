@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/shawncplus/ranvier-telnet/issues"
   },
-  "homepage": "https://github.com/shawncplus/ranvier-telnet#readme"
+  "homepage": "https://github.com/shawncplus/ranvier-telnet#readme",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "file:vendor/mocha"
+  }
 }
