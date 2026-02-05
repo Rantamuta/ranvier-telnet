@@ -4,7 +4,7 @@
   "description": "Telnet server and socket with GMCP support",
   "main": "index.js",
   "engines": {
-    "node": ">=7"
+    "node": ">=18"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/shawncplus/ranvier-telnet#readme",
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint .",
+    "test": "npm run lint && mocha"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
     "mocha": "file:vendor/mocha"
   }
 }
