@@ -64,3 +64,20 @@ If in doubt about any behavior or compatibility:
 The project uses:
 ```sh
 npm test
+````
+
+Agents should rely on this command for test execution in CI and local workflows.
+
+## Commands
+
+* **Install dependencies**: `npm ci`
+* **Run tests**: `npm test`
+
+## What Not to Do
+
+* Do **not** make unreversible refactors without tests.
+* Do **not** change public API without explicit instruction and tests.
+* Do **not** modify this file except to extend or refine guardrails.
+
+---
+
