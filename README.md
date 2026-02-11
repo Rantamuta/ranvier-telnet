@@ -51,6 +51,8 @@ As shown above you can receive GMCP data with the `GMCP` event. To send GMCP dat
 telnetSocket.sendGMCP('foo.bar', { some: "data" });
 ```
 
+GMCP payload handling is minimal: the package name is split from the payload on the first space, and the payload is parsed with `JSON.parse` when present. If a package is sent with no payload, the `GMCP` event receives `null` for the data argument. Malformed JSON will throw during parsing.
+
 ## Executing other Telnet commands
 
 If you want to execute other telnet commands, perhaps in response to a `DO` or `DONT` you can use the `telnetCommand` method:
@@ -109,7 +111,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 ### Documentation
 
 * [x] Add a “Compatibility” section (Node version, CommonJS usage, how to import).
-* [ ] Document GMCP behavior and error semantics as currently observed.
+* [x] Document GMCP behavior and error semantics as currently observed.
 
 ## Dependency Policy
 
