@@ -65,11 +65,11 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 * [ ] Add GitHub Actions CI with a Node matrix (22) running `npm ci` and `npm test`.
 * [ ] Add a minimal `npm test` script if missing.
 * [ ] Keep `package-lock.json` committed and up to date.
-* [ ] Update Mocha to the latest version.
-* [ ] Override `glob` to the latest version.
+* [ ] Upgrade `eslint` to the latest supported release
 
 ### Tests (Behavior Lock‑In)
 
+* [ ] Remove local Mocha vendor pin and use the official Mocha package.
 * [ ] Add Mocha test harness.
 * [ ] Add tests that assert current `TelnetServer` behavior (`socket.fresh = true`).
 * [ ] Add tests for `TelnetSocket` data flow (control byte handling, fresh negotiation deferral).
