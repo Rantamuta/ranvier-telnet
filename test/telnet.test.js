@@ -237,16 +237,25 @@ describe('TelnetSocket output and attach behaviors', () => {
     assert.strictEqual(fake.writes[0][0], Sequences.IAC);
   });
 
-  it('drops the byte after a newline due to current look-ahead behavior', (done) => {
+  it('emits data for bytes before and after a newline due to current look-ahead behavior', (done) => {
     const socket = new TelnetSocket();
     const connection = new FakeConnection();
     connection.fresh = false;
 
     socket.attach(connection);
 
+    const outputs = [];
     socket.on('data', (data) => {
+      outputs.push(data.toString());
+      if (outputs.length < 2) {
+        return;
+      }
+      if (outputs.length > 2) {
+        done(new Error(`Unexpected extra data event: ${outputs[outputs.length - 1]}`));
+        return;
+      }
       try {
-        assert.strictEqual(data.toString(), 'A');
+        assert.deepStrictEqual(outputs, ['A', 'B']);
         done();
       } catch (error) {
         done(error);

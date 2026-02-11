@@ -2,12 +2,12 @@ Ranvier telnet is an event-based telnet server and socket package with GMCP supp
 
 ## Requirements
 
-Node >= 7
+Node 22.13.0+ LTS
 
 ## Usage
 
 ```javascript
-const Telnet = require('ranvier-telnet');
+const Telnet = require('rantamuta-telnet');
 const server = new Telnet.TelnetServer(rawSocket => {
   const telnetSocket = new Telnet.TelnetSocket();
   telnetSocket.attach(rawSocket);
@@ -20,15 +20,27 @@ const server = new Telnet.TelnetServer(rawSocket => {
 server.listen(4000);
 ```
 
+## Compatibility
+
+* Node.js: 22.13.0+ LTS.
+* Module system: CommonJS only.
+* Import: `const Telnet = require('rantamuta-telnet');`
+
+## API
+
+* `Sequences`: Telnet command byte constants (IAC, DO, DONT, WILL, WONT, SB, SE, GA, EOR).
+* `Options`: Telnet option byte constants (`OPT_ECHO`, `OPT_EOR`, `OPT_GMCP`).
+* `TelnetSocket`: EventEmitter wrapper that parses Telnet/GMCP negotiation and emits events.
+* `TelnetServer`: Wrapper around `net.createServer` that marks sockets as `fresh` and invokes your listener.
 
 ## Events
 
 `<event name>(arguments)`
 
 * `data(Buffer input)`: Stream data that is not part of an IAC sequence
-* `WILL/WONT/DO/DONT(number commandOpt)`: IAC command event, argument is the opt byte to the command, you can use `RanvierTelnet.Options` or your own map of options.
-* `SUBNEG(number opt, Buffer buffer)`: Sent at completion of `IAC SB <OPT> [data] IAC SB` sequence. `buffer` argument is a `Buffer` of SB data
-* `GMCP(string package, data)`: Sent on completion of GMCP data. See: https://www.gammon.com.au/gmcp
+* `WILL/WONT/DO/DONT(number commandOpt)`: IAC command event, argument is the opt byte to the command, you can use `Telnet.Options` or your own map of options.
+* `SUBNEG(number opt, Buffer buffer)`: Sent at completion of `IAC SB <OPT> [data] IAC SE` sequence. `buffer` argument is a `Buffer` of SB data
+* `GMCP(string package, data)`: Sent on completion of GMCP data. See: <https://www.gammon.com.au/gmcp>
 * `unknownAction(number command, number opt)`: Some unknown IAC command was given
 
 ## GMCP
@@ -38,6 +50,8 @@ As shown above you can receive GMCP data with the `GMCP` event. To send GMCP dat
 ```javascript
 telnetSocket.sendGMCP('foo.bar', { some: "data" });
 ```
+
+GMCP payload handling is minimal: the package name is split from the payload on the first space, and the payload is parsed with `JSON.parse` when present. If a package is sent with no payload, the `GMCP` event receives `null` for the data argument. Malformed JSON will throw during parsing.
 
 ## Executing other Telnet commands
 
@@ -49,11 +63,58 @@ this.useGMCP = false;
 
 telnetSocket.on('DO', option => {
   switch (option) {
-    case Telnet.Options.GMCP:
+    case Telnet.Options.OPT_GMCP:
       this.useGMCP = true;
       break;
   }
 });
 
-telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
+telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.OPT_GMCP);
 ```
+
+## v1.0 Checklist
+
+### Runtime & Tooling
+
+* [x] Set `engines.node` to the supported LTS range (">=22.13.0") and state it in README.
+* [x] Add GitHub Actions CI with a Node matrix (22) running `npm ci` and `npm test`.
+* [x] Add a minimal `npm test` script if missing.
+* [x] Keep `package-lock.json` committed and up to date.
+* [x] Upgrade `eslint` to the latest supported release.
+* [x] Override `glob` to the latest version.
+
+### Tests (Behavior Lock‑In)
+
+* [x] Remove local Mocha vendor pin and use the official Mocha package.
+* [x] Add Mocha test harness.
+* [x] Add tests that assert current `TelnetServer` behavior (`socket.fresh = true`).
+* [x] Add tests for `TelnetSocket` data flow (control byte handling, fresh negotiation deferral).
+* [x] Add tests for `WILL/WONT/DO/DONT` event emission and `unknownAction`.
+* [x] Add tests for `SUBNEG` and `GMCP` parsing (including GMCP JSON parsing behavior).
+* [x] Add tests that preserve current quirks (IAC escaping in `write`, CR/LF look‑ahead behavior).
+
+### Modernization (No Behavior Change)
+
+* [x] Replace `new Buffer(...)` usages with `Buffer.from` / `Buffer.alloc` without output changes.
+* [x] Re-run tests on all CI Node versions after Buffer changes.
+
+### Packaging & Exports
+
+* [x] Confirm `main` matches `index.js` and that README examples match current export names.
+* [x] Document the public API surface (`Sequences`, `Options`, `TelnetSocket`, `TelnetServer`) in README.
+
+### Dependencies & Audit
+
+* [x] Run `npm audit` in CI and record results.
+* [x] Add a dependency policy section (maintenance‑only, security‑first, no major bumps without tests).
+
+### Documentation
+
+* [x] Add a “Compatibility” section (Node version, CommonJS usage, how to import).
+* [x] Document GMCP behavior and error semantics as currently observed.
+
+## Dependency Policy
+
+* Maintenance-only: avoid upgrades unless required for security, Node 22 compatibility, or tooling stability.
+* Security-first: prioritize fixes for known vulnerabilities.
+* No major bumps without tests: require coverage and CI before major upgrades.

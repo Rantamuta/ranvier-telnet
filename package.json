@@ -1,32 +1,37 @@
 {
-  "name": "ranvier-telnet",
-  "version": "1.0.3",
+  "name": "rantamuta-telnet",
+  "version": "1.0.0-beta.0",
   "description": "Telnet server and socket with GMCP support",
   "main": "index.js",
   "engines": {
-    "node": ">=18"
+    "node": ">=22.13.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shawncplus/ranvier-telnet.git"
+    "url": "git+https://github.com/Rantamuta/ranvier-telnet.git"
   },
   "keywords": [
     "telnet",
     "mud",
-    "gcmp"
+    "gmcp"
   ],
-  "author": "Shawn Biddle <shawncplus@gmail.com>",
+  "author": "RanvierMUD project and contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shawncplus/ranvier-telnet/issues"
+    "url": "https://github.com/Rantamuta/ranvier-telnet/issues"
   },
-  "homepage": "https://github.com/shawncplus/ranvier-telnet#readme",
+  "homepage": "https://github.com/Rantamuta/ranvier-telnet#readme",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && mocha"
+    "test": "npm run lint && mocha",
+    "ci:local": "node util/ci-local.js"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "mocha": "file:vendor/mocha"
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
+    "mocha": "^10.0.0"
+  },
+  "overrides": {
+    "glob": "13.0.2"
   }
 }
