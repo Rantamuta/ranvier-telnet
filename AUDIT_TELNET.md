@@ -48,7 +48,7 @@ The minimal deterministic test suite should capture current behavior (including 
 
 ## Staged Upgrade Plan (Modernization with Checkpoints & Rollback)
 ### Stage 0: Safety Rails (this phase)
-- Add CI that runs Node 18/20/22 to establish current behavior and catch regressions early.
+- Add CI that runs Node 22 LTS to establish current behavior and catch regressions early.
 - Add a minimal, deterministic test suite capturing the invariants above (no API changes).
 - **Checkpoint**: CI green on existing code (with any known warnings recorded).
 - **Rollback**: Revert CI/test additions if they introduce environment-specific failures.
@@ -66,7 +66,7 @@ The minimal deterministic test suite should capture current behavior (including 
 - **Rollback**: revert individual bug fixes if compatibility regressions are detected.
 
 ### Stage 3: Engine & Packaging Updates
-- Update `engines.node` to `>=18` (or `>=20`) first, then `>=22` after tests confirm behavior, maintaining semver discipline.
+- Keep `engines.node` aligned to Node 22 LTS.
 - Add a changelog and release notes for each step.
 - **Checkpoint**: published package works in Node 22 on CI; no consumer-visible API changes.
 - **Rollback**: restore prior engine constraints if consumer issues surface.
