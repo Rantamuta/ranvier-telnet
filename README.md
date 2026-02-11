@@ -20,6 +20,13 @@ const server = new Telnet.TelnetServer(rawSocket => {
 server.listen(4000);
 ```
 
+## API
+
+* `Sequences`: Telnet command byte constants (IAC, DO, DONT, WILL, WONT, SB, SE, GA, EOR).
+* `Options`: Telnet option byte constants (ECHO, EOR, GMCP).
+* `TelnetSocket`: EventEmitter wrapper that parses Telnet/GMCP negotiation and emits events.
+* `TelnetServer`: Wrapper around `net.createServer` that marks sockets as `fresh` and invokes your listener.
+
 ## Events
 
 `<event name>(arguments)`
@@ -86,7 +93,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 ### Packaging & Exports
 
 * [x] Confirm `main` matches `index.js` and that README examples match current export names.
-* [ ] Document the public API surface (`Sequences`, `Options`, `TelnetSocket`, `TelnetServer`) in README.
+* [x] Document the public API surface (`Sequences`, `Options`, `TelnetSocket`, `TelnetServer`) in README.
 
 ### Dependencies & Audit
 
