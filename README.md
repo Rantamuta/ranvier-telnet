@@ -29,7 +29,7 @@ server.listen(4000);
 ## API
 
 * `Sequences`: Telnet command byte constants (IAC, DO, DONT, WILL, WONT, SB, SE, GA, EOR).
-* `Options`: Telnet option byte constants (ECHO, EOR, GMCP).
+* `Options`: Telnet option byte constants (`OPT_ECHO`, `OPT_EOR`, `OPT_GMCP`).
 * `TelnetSocket`: EventEmitter wrapper that parses Telnet/GMCP negotiation and emits events.
 * `TelnetServer`: Wrapper around `net.createServer` that marks sockets as `fresh` and invokes your listener.
 
@@ -63,13 +63,13 @@ this.useGMCP = false;
 
 telnetSocket.on('DO', option => {
   switch (option) {
-    case Telnet.Options.GMCP:
+    case Telnet.Options.OPT_GMCP:
       this.useGMCP = true;
       break;
   }
 });
 
-telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
+telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.OPT_GMCP);
 ```
 
 ## v1.0 Checklist
