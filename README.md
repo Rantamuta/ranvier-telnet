@@ -98,9 +98,15 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 ### Dependencies & Audit
 
 * [x] Run `npm audit` in CI and record results.
-* [ ] Add a dependency policy section (maintenance‑only, security‑first, no major bumps without tests).
+* [x] Add a dependency policy section (maintenance‑only, security‑first, no major bumps without tests).
 
 ### Documentation
 
 * [ ] Add a “Compatibility” section (Node version, CommonJS usage, how to import).
 * [ ] Document GMCP behavior and error semantics as currently observed.
+
+## Dependency Policy
+
+* Maintenance-only: avoid upgrades unless required for security, Node 22 compatibility, or tooling stability.
+* Security-first: prioritize fixes for known vulnerabilities.
+* No major bumps without tests: require coverage and CI before major upgrades.
