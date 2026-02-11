@@ -2,7 +2,7 @@ Ranvier telnet is an event-based telnet server and socket package with GMCP supp
 
 ## Requirements
 
-Node 22 LTS
+Node 22.13.0+ LTS
 
 ## Usage
 
@@ -22,7 +22,7 @@ server.listen(4000);
 
 ## Compatibility
 
-* Node.js: 22 LTS.
+* Node.js: 22.13.0+ LTS.
 * Module system: CommonJS only.
 * Import: `const Telnet = require('rantamuta-telnet');`
 
@@ -76,7 +76,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 
 ### Runtime & Tooling
 
-* [x] Set `engines.node` to the supported LTS range (">=22") and state it in README.
+* [x] Set `engines.node` to the supported LTS range (">=22.13.0") and state it in README.
 * [x] Add GitHub Actions CI with a Node matrix (22) running `npm ci` and `npm test`.
 * [x] Add a minimal `npm test` script if missing.
 * [x] Keep `package-lock.json` committed and up to date.
