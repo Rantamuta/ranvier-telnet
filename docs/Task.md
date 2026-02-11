@@ -113,6 +113,7 @@ After approval:
 - Do not implement functional changes yet.
 - Ensure:
   - `npm test` passes
+  - `npm run ci:local` passes
 STOP for human review.
 
 Phase 5 — Implement the change
@@ -121,6 +122,7 @@ After approval:
 - Implement the planned change in minimal commits (one logical change per commit).
 - Ensure:
   - `npm test` passes
+  - `npm run ci:local` passes
 
 Phase 6 — Final report
 
