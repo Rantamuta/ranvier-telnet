@@ -73,7 +73,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 * [x] Remove local Mocha vendor pin and use the official Mocha package.
 * [x] Add Mocha test harness.
 * [x] Add tests that assert current `TelnetServer` behavior (`socket.fresh = true`).
-* [ ] Add tests for `TelnetSocket` data flow (control byte handling, fresh negotiation deferral).
+* [x] Add tests for `TelnetSocket` data flow (control byte handling, fresh negotiation deferral).
 * [ ] Add tests for `WILL/WONT/DO/DONT` event emission and `unknownAction`.
 * [ ] Add tests for `SUBNEG` and `GMCP` parsing (including GMCP JSON parsing behavior).
 * [ ] Add tests that preserve current quirks (IAC escaping in `write`, CR/LF look‑ahead behavior).
