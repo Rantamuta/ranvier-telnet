@@ -69,7 +69,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 
 ### Tests (Behavior Lock‑In)
 
-* [ ] Remove local Mocha vendor pin and use the official Mocha package.
+* [x] Remove local Mocha vendor pin and use the official Mocha package.
 * [ ] Add Mocha test harness.
 * [ ] Add tests that assert current `TelnetServer` behavior (`socket.fresh = true`).
 * [ ] Add tests for `TelnetSocket` data flow (control byte handling, fresh negotiation deferral).
