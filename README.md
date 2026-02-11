@@ -38,8 +38,8 @@ server.listen(4000);
 `<event name>(arguments)`
 
 * `data(Buffer input)`: Stream data that is not part of an IAC sequence
-* `WILL/WONT/DO/DONT(number commandOpt)`: IAC command event, argument is the opt byte to the command, you can use `RanvierTelnet.Options` or your own map of options.
-* `SUBNEG(number opt, Buffer buffer)`: Sent at completion of `IAC SB <OPT> [data] IAC SB` sequence. `buffer` argument is a `Buffer` of SB data
+* `WILL/WONT/DO/DONT(number commandOpt)`: IAC command event, argument is the opt byte to the command, you can use `Telnet.Options` or your own map of options.
+* `SUBNEG(number opt, Buffer buffer)`: Sent at completion of `IAC SB <OPT> [data] IAC SE` sequence. `buffer` argument is a `Buffer` of SB data
 * `GMCP(string package, data)`: Sent on completion of GMCP data. See: <https://www.gammon.com.au/gmcp>
 * `unknownAction(number command, number opt)`: Some unknown IAC command was given
 
