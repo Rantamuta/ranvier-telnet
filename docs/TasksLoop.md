@@ -1,17 +1,17 @@
-# Task Loop: Implement Rantamuta 1.0 (Unattended, Sequential, Commit-Gated)
+# Task Loop: Implement ranvier-telnet v1.0 (Unattended, Sequential, Commit-Gated)
 
-You are a datasource-file maintainer for this repository. Follow `AGENTS.md` strictly.
+You are a ranvier-telnet maintainer for this repository. Follow `AGENTS.md` strictly.
 
 Reference documents:
 
 - `AGENTS.md`
 - `docs/Task.md`
-- `README.md` section "## Rantamuta 1.0 Maintenance Checklist"
+- `README.md` section "## v1.0 Checklist"
 - `docs/ComplexityScale.md`
 - `docs/CHANGELOG_POLICY.md`
 
 Goal:
-Fully implement Rantamuta 1.0 by completing all unchecked checklist items under `README.md` → "## Rantamuta 1.0 Maintenance Checklist", sequentially, without human review pauses.
+Fully implement ranvier-telnet v1.0 by completing all unchecked checklist items under `README.md` → "## v1.0 Checklist", sequentially, without human review pauses.
 
 Global invariant:
 
@@ -26,7 +26,7 @@ No behavior changes unless required for Node 22+ modernization. Prefer documenta
 - Do NOT skip items.
 - Complete exactly one checklist item at a time.
 - After completing one item fully, mark it `[x]` in README.
-- Continue until all Rantamuta 1.0 checklist items are complete.
+- Continue until all v1.0 checklist items are complete.
 - Then stop.
 
 There are NO human review pauses.
@@ -66,13 +66,13 @@ After completing one checklist item:
 
 - Move to the next unchecked item in order.
 - Repeat the full workflow.
-- Continue until no unchecked items remain under "## Rantamuta 1.0 Maintenance Checklist".
+- Continue until no unchecked items remain under "## v1.0 Checklist".
 
 ---
 
 ## Completion Condition
 
-When all checklist items under "## Rantamuta 1.0 Maintenance Checklist" are checked:
+When all checklist items under "## v1.0 Checklist" are checked:
 
 - Verify `npm test` passes.
 - Verify `npm run ci:local` passes.

@@ -65,6 +65,8 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 * [ ] Add GitHub Actions CI with a Node matrix (22) running `npm ci` and `npm test`.
 * [ ] Add a minimal `npm test` script if missing.
 * [ ] Keep `package-lock.json` committed and up to date.
+* [ ] Update Mocha to the latest version.
+* [ ] Override `glob` to the latest version.
 
 ### Tests (Behavior Lock‑In)
 

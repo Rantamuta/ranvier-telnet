@@ -23,7 +23,8 @@
   "homepage": "https://github.com/shawncplus/ranvier-telnet#readme",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && mocha"
+    "test": "npm run lint && mocha",
+    "ci:local": "node util/ci-local.js"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
