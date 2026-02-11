@@ -74,7 +74,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 * [x] Add Mocha test harness.
 * [x] Add tests that assert current `TelnetServer` behavior (`socket.fresh = true`).
 * [x] Add tests for `TelnetSocket` data flow (control byte handling, fresh negotiation deferral).
-* [ ] Add tests for `WILL/WONT/DO/DONT` event emission and `unknownAction`.
+* [x] Add tests for `WILL/WONT/DO/DONT` event emission and `unknownAction`.
 * [ ] Add tests for `SUBNEG` and `GMCP` parsing (including GMCP JSON parsing behavior).
 * [ ] Add tests that preserve current quirks (IAC escaping in `write`, CR/LF look‑ahead behavior).
 
