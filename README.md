@@ -65,7 +65,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 * [x] Add GitHub Actions CI with a Node matrix (22) running `npm ci` and `npm test`.
 * [x] Add a minimal `npm test` script if missing.
 * [x] Keep `package-lock.json` committed and up to date.
-* [ ] Upgrade `eslint` to the latest supported release.
+* [x] Upgrade `eslint` to the latest supported release.
 * [x] Override `glob` to the latest version.
 
 ### Tests (Behavior Lock‑In)
