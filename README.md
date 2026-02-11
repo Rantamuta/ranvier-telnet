@@ -97,7 +97,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 
 ### Dependencies & Audit
 
-* [ ] Run `npm audit` in CI and record results.
+* [x] Run `npm audit` in CI and record results.
 * [ ] Add a dependency policy section (maintenance‑only, security‑first, no major bumps without tests).
 
 ### Documentation
