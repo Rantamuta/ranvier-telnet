@@ -2,7 +2,7 @@ Ranvier telnet is an event-based telnet server and socket package with GMCP supp
 
 ## Requirements
 
-Node >= 7
+Node 22 LTS
 
 ## Usage
 
@@ -61,7 +61,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 
 ### Runtime & Tooling
 
-* [ ] Set `engines.node` to the supported LTS range (">=22") and state it in README.
+* [x] Set `engines.node` to the supported LTS range (">=22") and state it in README.
 * [ ] Add GitHub Actions CI with a Node matrix (22) running `npm ci` and `npm test`.
 * [ ] Add a minimal `npm test` script if missing.
 * [ ] Keep `package-lock.json` committed and up to date.
