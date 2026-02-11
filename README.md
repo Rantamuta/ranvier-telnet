@@ -66,7 +66,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 * [ ] Add a minimal `npm test` script if missing.
 * [ ] Keep `package-lock.json` committed and up to date.
 * [ ] Upgrade `eslint` to the latest supported release.
-* [ ] Override `glob` to the latest version.
+* [x] Override `glob` to the latest version.
 
 ### Tests (Behavior Lock‑In)
 
