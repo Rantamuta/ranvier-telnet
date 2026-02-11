@@ -80,7 +80,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 
 ### Modernization (No Behavior Change)
 
-* [ ] Replace `new Buffer(...)` usages with `Buffer.from` / `Buffer.alloc` without output changes.
+* [x] Replace `new Buffer(...)` usages with `Buffer.from` / `Buffer.alloc` without output changes.
 * [ ] Re-run tests on all CI Node versions after Buffer changes.
 
 ### Packaging & Exports
