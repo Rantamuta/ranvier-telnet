@@ -7,7 +7,7 @@ Node 22 LTS
 ## Usage
 
 ```javascript
-const Telnet = require('ranvier-telnet');
+const Telnet = require('rantamuta-telnet');
 const server = new Telnet.TelnetServer(rawSocket => {
   const telnetSocket = new Telnet.TelnetSocket();
   telnetSocket.attach(rawSocket);
@@ -19,6 +19,12 @@ const server = new Telnet.TelnetServer(rawSocket => {
 
 server.listen(4000);
 ```
+
+## Compatibility
+
+* Node.js: 22 LTS.
+* Module system: CommonJS only.
+* Import: `const Telnet = require('rantamuta-telnet');`
 
 ## API
 
@@ -102,7 +108,7 @@ telnetSocket.telnetCommand(Telnet.Sequences.WILL, Telnet.Options.GMCP);
 
 ### Documentation
 
-* [ ] Add a “Compatibility” section (Node version, CommonJS usage, how to import).
+* [x] Add a “Compatibility” section (Node version, CommonJS usage, how to import).
 * [ ] Document GMCP behavior and error semantics as currently observed.
 
 ## Dependency Policy
